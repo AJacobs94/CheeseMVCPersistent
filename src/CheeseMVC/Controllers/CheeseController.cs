@@ -60,7 +60,7 @@ namespace CheeseMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Remove(int[] cheeseIds)
+        public IActionResult Remove(int[] cheeseIds) 
         {
             foreach (int cheeseId in cheeseIds)
             {
