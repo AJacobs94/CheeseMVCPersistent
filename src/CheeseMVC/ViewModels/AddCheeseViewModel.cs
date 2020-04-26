@@ -29,12 +29,14 @@ namespace CheeseMVC.ViewModels
         {
             Categories = new List<SelectListItem>();
 
-            foreach(CheeseCategory cat in categories)
-            Categories.Add(new SelectListItem
+            foreach (CheeseCategory cat in categories)
             {
-                Value=cat.ID.ToString(),
-                Text=cat.Name
-            });
+                Categories.Add(new SelectListItem
+                {
+                    Value = cat.ID.ToString(),
+                    Text = cat.Name
+                });
+            }
         }
 
         public AddCheeseViewModel()
