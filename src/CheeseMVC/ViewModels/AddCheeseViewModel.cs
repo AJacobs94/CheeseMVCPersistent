@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace CheeseMVC.ViewModels
 {
     public class AddCheeseViewModel
@@ -17,11 +18,31 @@ namespace CheeseMVC.ViewModels
         [Required(ErrorMessage = "You must give your cheese a description")]
         public string Description { get; set; }
 
-        public CheeseType Type { get; set; }
+        [Required]
+        [Display(Name ="Category")]
+        public int CategoryID { get; set; }
 
-        public List<SelectListItem> CheeseTypes { get; set; }
+       // public CheeseCategory Category { get; set; }
+        public List<SelectListItem> Categories { get; set; }
 
-        public AddCheeseViewModel() {
+        public AddCheeseViewModel(IEnumerable<CheeseCategory> categories)
+        {
+            Categories = new List<SelectListItem>();
+
+            foreach(CheeseCategory cat in categories)
+            Categories.Add(new SelectListItem
+            {
+                Value=cat.ID.ToString(),
+                Text=cat.Name
+            });
+        }
+
+        public AddCheeseViewModel()
+        {
+
+        }
+
+       /* 
 
             CheeseTypes = new List<SelectListItem>();
 
@@ -43,6 +64,6 @@ namespace CheeseMVC.ViewModels
                 Text = CheeseType.Fake.ToString()
             });
 
-        }
+        }*/
     }
 }
