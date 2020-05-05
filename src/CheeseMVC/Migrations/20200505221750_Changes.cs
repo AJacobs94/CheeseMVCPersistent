@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace CheeseMVC.Migrations
 {
-    public partial class AddHtml : Migration
+    public partial class Changes : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
